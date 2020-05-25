@@ -1,7 +1,25 @@
-module.exports = {
-    module: {
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpackMerge = require('webpack-merge')
+
+// eslint-disable-next-line global-require
+const modeConfig = (env) => require(`./build-utils/webpack.${env}`)(env)
+
+// eslint-disable-next-line no-unused-vars
+module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
+  webpackMerge(
+    {
+      mode,
+      module: {
         rules: [
-            { test: /\.(js|jsx)$/, use:'babel_loader', exclude: /node_modules/}
-        ]
-    }
-}
+          { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+        ],
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: `${__dirname}/public/index.html`,
+          filename: 'index.html',
+        }),
+      ],
+    },
+    modeConfig(mode),
+  )
