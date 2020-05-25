@@ -1,0 +1,4 @@
+{
+    "extends": "@imaginary-cloud/react"
+    // <!-- you can edit this configuration as usual, check ESLint docs -->
+  }
