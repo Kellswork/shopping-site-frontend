@@ -1,7 +1,12 @@
 import React from 'react'
+import { FormButton } from './components/buttons'
 
 function App() {
-  return <h1> Hello World</h1>
+  return (
+    <div>
+      <FormButton>Create your account</FormButton>
+    </div>
+  )
 }
 
 export default App
