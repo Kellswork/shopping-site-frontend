@@ -23,3 +23,5 @@ export const neutrals = {
   lightgrey400: 'hsl(210, 16%, 82% )',
   lightgrey500: 'hsl(210, 16%, 82% )',
 }
+
+export const white = '#ffffff'
