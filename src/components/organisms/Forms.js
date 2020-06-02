@@ -8,18 +8,18 @@ import {
   white,
   radius,
   spacingUnit,
-} from '../utils'
+} from '../../utils'
 import {
   FirstNameInput,
   LastNameInput,
   EmailInput,
   PasswordInput,
   ConfirmPasswordInput,
-} from './TextFields'
+} from '../molecules/TextFields'
 
-import { FormButton } from './buttons'
+import { FormButton } from '../atoms/buttons'
 
-export const FormWrapper = styled.div`
+const FormWrapper = styled.div`
   width: 100%;
   max-width: 790px;
   height: 569px;
@@ -39,12 +39,10 @@ const FormHeader = styled.h3`
   padding: ${spacingUnit[4]} 0px;
 `
 
-const FormContainer = styled.div``
-
 export const Form = styled.form`
   max-width: 394px;
   height: 386px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -57,17 +55,15 @@ const FloatDiv = styled.div`
 export const SignupForm = () => (
   <FormWrapper>
     <FormHeader>Signup to shop our lovely collections!</FormHeader>
-    <FormContainer>
-      <Form>
-        <FloatDiv>
-          <FirstNameInput />
-          <LastNameInput />
-        </FloatDiv>
-        <EmailInput />
-        <PasswordInput />
-        <ConfirmPasswordInput />
-        <FormButton>create your account</FormButton>
-      </Form>
-    </FormContainer>
+    <Form>
+      <FloatDiv>
+        <FirstNameInput />
+        <LastNameInput />
+      </FloatDiv>
+      <EmailInput />
+      <PasswordInput />
+      <ConfirmPasswordInput />
+      <FormButton>create your account</FormButton>
+    </Form>
   </FormWrapper>
 )

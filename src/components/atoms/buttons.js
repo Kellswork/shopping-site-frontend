@@ -1,12 +1,20 @@
 import styled from 'styled-components'
-import { border, typeScale, headerFont, primaryBlue, neutrals } from '../utils'
+import {
+  border,
+  radius,
+  typeScale,
+  headerFont,
+  primaryBlue,
+  neutrals,
+} from '../../utils'
 
 export const FormButton = styled.button`
   padding: 0;
-  width: 24.6rem;
+  width: 100%;
   height: 2.75rem;
+  padding: 0.75rem;
   border: ${border(primaryBlue[7])[1]};
-  border-radius: ${border().radius};
+  border-radius: ${radius.sm};
   font-family: ${headerFont};
   font-size: ${typeScale.para};
   background-color: ${primaryBlue[7]};

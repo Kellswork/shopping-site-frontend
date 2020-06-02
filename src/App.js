@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { neutrals } from './utils'
-import { SignupForm } from './components/Forms'
+import { SignupForm } from './components/organisms/Forms'
 
 const Div = styled.div`
   background-color: ${neutrals.lightgrey100};

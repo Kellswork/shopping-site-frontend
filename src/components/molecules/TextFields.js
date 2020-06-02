@@ -8,23 +8,28 @@ import {
   primaryBlue,
   headerFont,
   spacingUnit,
-} from '../utils'
+} from '../../utils'
 
-export const Input = styled.input`
+const Input = styled.input`
   width: ${(props) => props.width || '100%'};
   height: 40px;
   background: ${neutrals.lightgrey100};
-  border: ${border(neutrals.lightgrey100)[2]};
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid ${neutrals.lightgrey100};
+  box-shadow: inset 0 1px 2px ${neutrals.lightgrey500}, 0 -1px 1px #fff,
+    0 1px 0 #fff;
   border-radius: ${radius.sm};
   margin-bottom: ${spacingUnit[4]};
-  margin-top: ${spacingUnit[1]};
+  /* padding-left: ${spacingUnit[0]}; */
+  margin-top: ${spacingUnit[2]};
   display: inline-block;
   box-sizing: border-box;
   &:focus {
-    border-color: ${primaryBlue[6]};
+    border: 1px solid ${primaryBlue[4]};
   }
 `
-export const Label = styled.label`
+const Label = styled.label`
   font-size: ${typeScale.para};
   font-family: ${headerFont};
   display: block;
