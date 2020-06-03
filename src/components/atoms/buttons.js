@@ -8,6 +8,16 @@ import {
   neutrals,
 } from '../../utils'
 
+export const SecondaryButton = styled.button`
+  width: 90.09px;
+  height: 40px;
+  background: transparent;
+  border: ${border(primaryBlue[6])[3]};
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: ${neutrals.darkgrey400};
+`
+
 export const FormButton = styled.button`
   padding: 0;
   width: 100%;

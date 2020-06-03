@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {
   typeScale,
   neutrals,
-  border,
   radius,
   primaryBlue,
   headerFont,

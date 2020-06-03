@@ -8,6 +8,7 @@ import {
   white,
   radius,
   spacingUnit,
+  primaryBlue,
 } from '../../utils'
 import {
   FirstNameInput,
@@ -17,32 +18,38 @@ import {
   ConfirmPasswordInput,
 } from '../molecules/TextFields'
 
-import { FormButton } from '../atoms/buttons'
+import { FormButton, SecondaryButton } from '../atoms/buttons'
+import { IconRight } from '../atoms/icons'
 
-const FormWrapper = styled.div`
+const CardContainer = styled.div`
   width: 100%;
   max-width: 790px;
   height: 569px;
+  display: flex;
+  flex-direction: column;
   background-color: ${white};
   border-radius: ${radius.sm};
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
-`
-const FormHeader = styled.h3`
-  font-size: ${typeScale.H4};
-  font-family: ${headerFont};
-  font-weight: ${fontWeight.bold};
-  color: ${neutrals.darkgrey300};
-  margin: 0 auto;
-  padding: ${spacingUnit[4]} 0px;
+  h4 {
+    font-size: ${typeScale.H4};
+    font-family: ${headerFont};
+    font-weight: ${fontWeight.bold};
+    color: ${neutrals.darkgrey300};
+    margin: 0 auto;
+    padding-top: ${spacingUnit[4]};
+  }
 `
 
-export const Form = styled.form`
+const CardContent = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+`
+
+const Form = styled.form`
   max-width: 394px;
-  height: 386px;
-  /* border: 1px solid black; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -52,18 +59,56 @@ const FloatDiv = styled.div`
   display: flex;
 `
 
+const RectDiv = styled.div`
+  width: 2.97px;
+  height: 272px;
+  background: ${primaryBlue[5]};
+  margin-bottom: ${spacingUnit[2]};
+`
+const LoginDiv = styled.div`
+  box-sizing: border-box;
+  padding-bottom: ${spacingUnit[8]};
+  text-align: center;
+
+  p {
+    padding-bottom: ${spacingUnit[4]};
+    font-family: ${headerFont};
+    font-weight: bold;
+    font-size: ${spacingUnit[3]};
+    color: ${neutrals.darkgrey300};
+  }
+  button {
+    font-size: ${spacingUnit[2.5]};
+  }
+  span {
+    padding-left: ${spacingUnit[0]};
+  }
+`
+
 export const SignupForm = () => (
-  <FormWrapper>
-    <FormHeader>Signup to shop our lovely collections!</FormHeader>
-    <Form>
-      <FloatDiv>
-        <FirstNameInput />
-        <LastNameInput />
-      </FloatDiv>
-      <EmailInput />
-      <PasswordInput />
-      <ConfirmPasswordInput />
-      <FormButton>create your account</FormButton>
-    </Form>
-  </FormWrapper>
+  <CardContainer>
+    <h4> Signup to shop our lovely collections! </h4>
+    <CardContent>
+      <Form>
+        <FloatDiv>
+          <FirstNameInput />
+          <LastNameInput />
+        </FloatDiv>
+        <EmailInput />
+        <PasswordInput />
+        <ConfirmPasswordInput />
+        <FormButton>create your account</FormButton>
+      </Form>
+      <RectDiv></RectDiv>
+      <LoginDiv>
+        <p>Already have an account?</p>
+        <SecondaryButton>
+          LOGIN
+          <span>
+            <IconRight />
+          </span>
+        </SecondaryButton>
+      </LoginDiv>
+    </CardContent>
+  </CardContainer>
 )
