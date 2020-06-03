@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import axios from 'axios'
 import {
   typeScale,
   headerFont,
@@ -11,11 +14,14 @@ import {
   primaryBlue,
 } from '../../utils'
 import {
-  FirstNameInput,
-  LastNameInput,
-  EmailInput,
-  PasswordInput,
-  ConfirmPasswordInput,
+  Label,
+  Input,
+  InputDiv,
+  // FirstNameInput,
+  // LastNameInput,
+  // EmailInput,
+  // PasswordInput,
+  // ConfirmPasswordInput,
 } from '../molecules/TextFields'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
@@ -87,20 +93,179 @@ const LoginDiv = styled.div`
   }
 `
 
+const signupSchema = yup.object().shape({
+  firstname: yup
+    .string()
+    .required('firstname is required')
+    .max(50, 'maximum of 50 characters')
+    .matches(/^[a-zA-Z]+$/i, 'firstname must contain only alphabets')
+    .matches(/^\S{3,}$/, 'firstname cannot contain whitespaces')
+    .trim(),
+  lastname: yup
+    .string()
+    .required('lastname is required')
+    .max(50, 'maximum of 50 characters')
+    .matches(/^[a-zA-Z]+$/i, 'lastname must contain only alphabets')
+    .matches(/^\S{3,}$/, 'lastname cannot contain whitespaces')
+    .trim(),
+  email: yup
+    .string()
+    .email('Please input a valid email')
+    .required('email is required'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(5, 'password must be atleast 5 characters')
+    .max(50, 'maximum of 50 characters')
+    .trim(),
+  confirmPassword: yup
+    .string()
+    .required('required')
+    .oneOf([yup.ref('password'), null], 'password does not match'),
+})
+
 export const SignupForm = () => (
   <CardContainer>
     <h4> Signup to shop our lovely collections! </h4>
     <CardContent>
-      <Form>
-        <FloatDiv>
-          <FirstNameInput />
-          <LastNameInput />
-        </FloatDiv>
-        <EmailInput />
-        <PasswordInput />
-        <ConfirmPasswordInput />
-        <FormButton>CREATE ACCOUNT</FormButton>
-      </Form>
+      <Formik
+        initialValues={{
+          fistname: '',
+          lastname: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        }}
+        validationSchema={signupSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          axios
+            .post('http://localhost:3500/api/v1/auth/register', values)
+            .then((res) => console.log(res.data))
+          setSubmitting(false)
+        }}
+      >
+        {(formik) => (
+          <Form onSubmit={formik.handleSubmit}>
+            <FloatDiv>
+              <InputDiv>
+                <Label htmlFor="firstname">
+                  Firstname<span className="req"> *</span>
+                  <Input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    width="98.8%"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstname}
+                    border={
+                      formik.touched.firstname &&
+                      formik.errors.firstname &&
+                      '1px solid red'
+                    }
+                  />
+                  {formik.touched.firstname && formik.errors.firstname ? (
+                    <p style={{ color: 'red' }}>{formik.errors.firstname}</p>
+                  ) : null}
+                </Label>
+              </InputDiv>
+
+              <InputDiv>
+                <Label htmlFor="lastname">
+                  Lastname<span className="req"> *</span>
+                  <Input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.lastname}
+                    border={
+                      formik.touched.lastname &&
+                      formik.errors.lastname &&
+                      '1px solid red'
+                    }
+                  />
+                  {formik.touched.lastname && formik.errors.lastname ? (
+                    <p style={{ color: 'red' }}>{formik.errors.lastname}</p>
+                  ) : null}
+                </Label>
+              </InputDiv>
+            </FloatDiv>
+
+            <InputDiv>
+              <Label htmlFor="email">
+                Email<span className="req"> *</span>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  border={
+                    formik.touched.email &&
+                    formik.errors.email &&
+                    '1px solid red'
+                  }
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <p style={{ color: 'red' }}>{formik.errors.email}</p>
+                ) : null}
+              </Label>
+            </InputDiv>
+
+            <InputDiv>
+              <Label htmlFor="password">
+                Password<span className="req"> *</span>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  border={
+                    formik.touched.password &&
+                    formik.errors.password &&
+                    '1px solid red'
+                  }
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <p style={{ color: 'red' }}>{formik.errors.password}</p>
+                ) : null}
+              </Label>
+            </InputDiv>
+
+            <InputDiv>
+              <Label htmlFor="confirmPassword">
+                Confirm Password<span className="req"> *</span>
+                <Input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.confirmPassword}
+                  border={
+                    formik.touched.confirmPassword &&
+                    formik.errors.confirmPassword &&
+                    '1px solid red'
+                  }
+                />
+                {formik.touched.confirmPassword &&
+                formik.errors.confirmPassword ? (
+                  <p style={{ color: 'red' }}>
+                    {formik.errors.confirmPassword}
+                  </p>
+                ) : null}
+              </Label>
+            </InputDiv>
+
+            <FormButton type="submit">CREATE ACCOUNT</FormButton>
+          </Form>
+        )}
+      </Formik>
       <RectDiv></RectDiv>
       <LoginDiv>
         <p>Already have an account?</p>
