@@ -15,7 +15,7 @@ export const SecondaryButton = styled.button`
   border: ${border(primaryBlue[6])[3]};
   box-sizing: border-box;
   border-radius: 4px;
-  color: ${neutrals.darkgrey400};
+  color: ${neutrals.darkgrey300};
 `
 
 export const FormButton = styled.button`

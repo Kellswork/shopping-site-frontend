@@ -20,10 +20,11 @@ const Input = styled.input`
     0 1px 0 #fff;
   border-radius: ${radius.sm};
   margin-bottom: ${spacingUnit[4]};
-  /* padding-left: ${spacingUnit[0]}; */
+  padding-left: ${spacingUnit[1]};
   margin-top: ${spacingUnit[2]};
   display: inline-block;
   box-sizing: border-box;
+  color: ${neutrals.darkgrey500};
   &:focus {
     border: 1px solid ${primaryBlue[4]};
   }
@@ -32,6 +33,7 @@ const Label = styled.label`
   font-size: ${typeScale.para};
   font-family: ${headerFont};
   display: block;
+  color: ${neutrals.darkgrey500};
 `
 
 export const FirstNameInput = () => (

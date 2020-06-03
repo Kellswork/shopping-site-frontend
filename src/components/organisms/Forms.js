@@ -37,15 +37,17 @@ const CardContainer = styled.div`
     font-weight: ${fontWeight.bold};
     color: ${neutrals.darkgrey300};
     margin: 0 auto;
-    padding-top: ${spacingUnit[4]};
+    padding-top: ${spacingUnit[6]};
   }
 `
 
 const CardContent = styled.div`
+  box-sizing: border-box;
   display: flex;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: ${spacingUnit[2.5]};
 `
 
 const Form = styled.form`
