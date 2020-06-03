@@ -76,11 +76,11 @@ const LoginDiv = styled.div`
     padding-bottom: ${spacingUnit[4]};
     font-family: ${headerFont};
     font-weight: bold;
-    font-size: ${spacingUnit[3]};
+    font-size: ${typeScale.para};
     color: ${neutrals.darkgrey300};
   }
   button {
-    font-size: ${spacingUnit[2.5]};
+    font-size: ${typeScale.helperText};
   }
   span {
     padding-left: ${spacingUnit[0]};
@@ -99,7 +99,7 @@ export const SignupForm = () => (
         <EmailInput />
         <PasswordInput />
         <ConfirmPasswordInput />
-        <FormButton>create your account</FormButton>
+        <FormButton>CREATE ACCOUNT</FormButton>
       </Form>
       <RectDiv></RectDiv>
       <LoginDiv>

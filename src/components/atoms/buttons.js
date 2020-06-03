@@ -26,9 +26,10 @@ export const FormButton = styled.button`
   border: ${border(primaryBlue[7])[1]};
   border-radius: ${radius.sm};
   font-family: ${headerFont};
-  font-size: ${typeScale.para};
+  font-size: ${typeScale.helperText};
   background-color: ${primaryBlue[7]};
   color: ${neutrals.lightgrey100};
   box-shadow: 0px 4px 6px hsla(0, 0%, 0%, 0.2);
   transition: background-color 0.2s linear, color 0.2s linear;
+  letter-spacing: 1px;
 `
