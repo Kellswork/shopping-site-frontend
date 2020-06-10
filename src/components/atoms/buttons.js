@@ -47,4 +47,15 @@ export const FormButton = styled.button`
     border-radius: 4px;
     border: 1px solid #5e8aee;
   }
+  &:disabled {
+    cursor: pointer;
+    background-color: ${neutrals.darkgrey100};
+    box-shadow: none;
+    color: ${neutrals.lightgrey100};
+    border: ${border(neutrals.darkgrey100)[1]};
+
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+    }
 `

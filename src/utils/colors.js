@@ -22,6 +22,10 @@ export const neutrals = {
   lightgrey300: 'hsl(210, 16%, 82% )',
   lightgrey400: 'hsl(210, 16%, 82% )',
   lightgrey500: 'hsl(210, 16%, 82% )',
+  white: '#ffffff',
 }
 
-export const white = '#ffffff'
+export const errorCol = {
+  error100: 'hsl(360, 100%, 95%)',
+  error800: 'hsl(352, 90%, 35%)',
+}

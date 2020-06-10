@@ -1,28 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Formik } from 'formik'
+import { Formik, ErrorMessage, isInit } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
+import ReactLoading from 'react-loading'
 import {
   typeScale,
   headerFont,
   fontWeight,
   neutrals,
+  errorCol,
   white,
   radius,
   spacingUnit,
   primaryBlue,
 } from '../../utils'
-import {
-  Label,
-  Input,
-  InputDiv,
-  // FirstNameInput,
-  // LastNameInput,
-  // EmailInput,
-  // PasswordInput,
-  // ConfirmPasswordInput,
-} from '../molecules/TextFields'
+import { Label, Input, InputDiv } from '../molecules/TextFields'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
 import { IconRight } from '../atoms/icons'
@@ -93,6 +86,22 @@ const LoginDiv = styled.div`
   }
 `
 
+const Para = styled.p`
+  padding: 4px;
+    box-sizing: border-box;
+    background: ${errorCol.error100};
+    border-radius: 2px;
+    color: ${errorCol.error800};
+    margin-top: 0px;
+}
+`
+const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+`
+
 const signupSchema = yup.object().shape({
   firstname: yup
     .string()
@@ -152,22 +161,15 @@ export const SignupForm = () => (
                   Firstname<span className="req"> *</span>
                   <Input
                     type="text"
-                    id="firstname"
                     name="firstname"
                     width="98.8%"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.firstname}
-                    border={
-                      formik.touched.firstname &&
-                      formik.errors.firstname &&
-                      '1px solid red'
-                    }
+                    {...formik.getFieldProps('firstname')}
+                    error={formik.touched.firstname && formik.errors.firstname}
                   />
-                  {formik.touched.firstname && formik.errors.firstname ? (
-                    <p style={{ color: 'red' }}>{formik.errors.firstname}</p>
-                  ) : null}
                 </Label>
+                <ErrorMessage component="p" name="firstname">
+                  {(msg) => <Para>{msg}</Para>}
+                </ErrorMessage>
               </InputDiv>
 
               <InputDiv>
@@ -175,94 +177,75 @@ export const SignupForm = () => (
                   Lastname<span className="req"> *</span>
                   <Input
                     type="text"
-                    id="lastname"
                     name="lastname"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.lastname}
-                    border={
-                      formik.touched.lastname &&
-                      formik.errors.lastname &&
-                      '1px solid red'
-                    }
+                    {...formik.getFieldProps('lastname')}
+                    error={formik.touched.lastname && formik.errors.lastname}
                   />
-                  {formik.touched.lastname && formik.errors.lastname ? (
-                    <p style={{ color: 'red' }}>{formik.errors.lastname}</p>
-                  ) : null}
                 </Label>
+                <ErrorMessage name="lastname">
+                  {(msg) => <Para>{msg}</Para>}
+                </ErrorMessage>
               </InputDiv>
             </FloatDiv>
-
             <InputDiv>
               <Label htmlFor="email">
                 Email<span className="req"> *</span>
                 <Input
                   type="email"
-                  id="email"
                   name="email"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.email}
-                  border={
-                    formik.touched.email &&
-                    formik.errors.email &&
-                    '1px solid red'
-                  }
+                  {...formik.getFieldProps('email')}
+                  error={formik.touched.email && formik.errors.email}
                 />
-                {formik.touched.email && formik.errors.email ? (
-                  <p style={{ color: 'red' }}>{formik.errors.email}</p>
-                ) : null}
               </Label>
+              <ErrorMessage name="email">
+                {(msg) => <Para>{msg}</Para>}
+              </ErrorMessage>
             </InputDiv>
-
             <InputDiv>
               <Label htmlFor="password">
                 Password<span className="req"> *</span>
                 <Input
                   type="password"
-                  id="password"
                   name="password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.password}
-                  border={
-                    formik.touched.password &&
-                    formik.errors.password &&
-                    '1px solid red'
-                  }
+                  {...formik.getFieldProps('password')}
+                  error={formik.touched.password && formik.errors.password}
                 />
-                {formik.touched.password && formik.errors.password ? (
-                  <p style={{ color: 'red' }}>{formik.errors.password}</p>
-                ) : null}
               </Label>
+              <ErrorMessage name="password">
+                {(msg) => <Para>{msg}</Para>}
+              </ErrorMessage>
             </InputDiv>
-
             <InputDiv>
               <Label htmlFor="confirmPassword">
                 Confirm Password<span className="req"> *</span>
                 <Input
                   type="password"
-                  id="confirmPassword"
                   name="confirmPassword"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.confirmPassword}
-                  border={
+                  {...formik.getFieldProps('confirmPassword')}
+                  error={
                     formik.touched.confirmPassword &&
-                    formik.errors.confirmPassword &&
-                    '1px solid red'
+                    formik.errors.confirmPassword
                   }
                 />
-                {formik.touched.confirmPassword &&
-                formik.errors.confirmPassword ? (
-                  <p style={{ color: 'red' }}>
-                    {formik.errors.confirmPassword}
-                  </p>
-                ) : null}
               </Label>
+              <ErrorMessage name="confirmPassword">
+                {(msg) => <Para>{msg}</Para>}
+              </ErrorMessage>
             </InputDiv>
-
-            <FormButton type="submit">CREATE ACCOUNT</FormButton>
+            <FormButton type="submit" disabled={!formik.isValid}>
+              {formik.isSubmitting ? (
+                <Loading>
+                  <ReactLoading
+                    type="bubbles"
+                    color="white"
+                    height="60px"
+                    width="60px"
+                  />
+                </Loading>
+              ) : (
+                `CREATE ACCOUNT`
+              )}
+            </FormButton>
           </Form>
         )}
       </Formik>

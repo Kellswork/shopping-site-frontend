@@ -1,5 +1,4 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Field } from 'formik'
 
 import {
@@ -26,9 +25,29 @@ export const Input = styled(Field)`
   display: inline-block;
   box-sizing: border-box;
   color: ${neutrals.darkgrey500};
-  &:focus {
+  &:focus,
+  &:active {
     border: 1px solid ${primaryBlue[4]};
   }
+  ${({ error }) =>
+    error &&
+    css`
+      border: 1px solid rgb(191, 49, 12);
+      outline: none;
+
+      &:focus,
+      &:active {
+        border: 1px solid rgb(191, 49, 12);
+        outline: none;
+      }
+
+      /* Autocomplete styles in Chrome*/
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        border: 1px solid rgb(191, 49, 12);
+      }
+    `}
 `
 export const Label = styled.label`
   font-size: ${typeScale.para};
@@ -40,64 +59,3 @@ export const InputDiv = styled.div`
   margin-bottom: ${spacingUnit[4]};
 `
 
-// export const LastNameInput = (props) => (
-//   <InputDiv>
-//     <Label htmlFor="lastname">
-//       Lastname<span className="req"> *</span>
-//       <Input
-//         type="text"
-//         id="lastname"
-//         name="lastname"
-//         onChange={props.handleChange}
-//         onBlur={props.handleBlur}
-//         value={props.value}
-//       />
-//     </Label>
-//   </InputDiv>
-// )
-// export const EmailInput = (props) => (
-//   <InputDiv>
-//     <Label htmlFor="email">
-//       Email<span className="req"> *</span>
-//       <Input
-//         type="email"
-//         id="email"
-//         name="email"
-//         onChange={props.handleChange}
-//         onBlur={props.handleBlur}
-//         value={props.value}
-//       />
-//     </Label>
-//   </InputDiv>
-// )
-
-// export const PasswordInput = (props) => (
-//   <InputDiv>
-//     <Label htmlFor="password">
-//       Password<span className="req"> *</span>
-//       <Input
-//         type="password"
-//         id="password"
-//         name="password"
-//         onChange={props.handleChange}
-//         onBlur={props.handleBlur}
-//         value={props.value}
-//       />
-//     </Label>
-//   </InputDiv>
-// )
-// export const ConfirmPasswordInput = (props) => (
-//   <InputDiv>
-//     <Label htmlFor="confirmPassword">
-//       Confirm Password<span className="req"> *</span>
-//       <Input
-//         type="password"
-//         id="confirmPassword"
-//         name="confirmPassword"
-//         onChange={props.handleChange}
-//         onBlur={props.handleBlur}
-//         value={props.value}
-//       />
-//     </Label>
-//   </InputDiv>
-// )
