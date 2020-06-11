@@ -249,7 +249,7 @@ export const SignupForm = () => (
           </Form>
         )}
       </Formik>
-      <RectDiv></RectDiv>
+      <RectDiv />
       <LoginDiv>
         <p>Already have an account?</p>
         <SecondaryButton>

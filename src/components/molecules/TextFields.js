@@ -10,6 +10,16 @@ import {
   spacingUnit,
 } from '../../utils'
 
+export const SearchInput = styled.input`
+  width: 70%;
+  padding: 6px 2px;
+  box-sizing: border-box;
+  border-radius: 0px;
+  border: 1px solid #cbd2d9;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+`
+
 export const Input = styled(Field)`
   width: ${(props) => props.width || '100%'};
   height: 40px;
@@ -58,4 +68,3 @@ export const Label = styled.label`
 export const InputDiv = styled.div`
   margin-bottom: ${spacingUnit[4]};
 `
-

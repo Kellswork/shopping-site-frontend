@@ -1,4 +1,4 @@
 import React from 'react'
-import { SignupForm } from '../organisms/Forms'
+import { SignupForm, Nav } from '../organisms'
 
-export const SignupPage = () => <SignupForm />
+export const SignupPage = () => <Nav />

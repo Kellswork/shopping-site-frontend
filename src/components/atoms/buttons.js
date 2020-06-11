@@ -8,6 +8,23 @@ import {
   neutrals,
 } from '../../utils'
 
+export const PrimaryButton = styled.button`
+  width: 80.44px;
+  height: 40px;
+
+  background: #52606d;
+  box-shadow: 0px 4px 6px rgba(15, 32, 66, 0.2);
+  border-radius: 4px;
+
+  font-family: Inter;
+  font-style: normal;
+  font-size: 14px;
+  /* identical to box height */
+  text-align: center;
+
+  color: #ffffff;
+`
+
 export const SecondaryButton = styled.button`
   width: 90.09px;
   height: 40px;
@@ -58,4 +75,22 @@ export const FormButton = styled.button`
     &:focus {
       cursor: not-allowed;
     }
+  }
+`
+
+export const SearchButton = styled.button`
+  padding: 4px 24px;
+  height: 34px;
+  background: #52606d;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-style: normal;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #cbd2d9;
+  border-left: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: white;
+  cursor: pointer;
 `

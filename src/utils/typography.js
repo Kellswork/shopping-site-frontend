@@ -9,6 +9,7 @@ export const typeScale = {
   H5: '1.2rem',
   H6: '1.2rem',
   para: '1rem',
+  text: '0.88rem',
   helperText: '0.8rem',
   copyRightText: '0.7rem',
 }
