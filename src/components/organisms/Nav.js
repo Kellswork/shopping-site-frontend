@@ -24,6 +24,8 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  margin-bottom: ${spacingUnit[5]};
+  background: ${neutrals.white};
 `
 const TopSection = styled.div`
   width: 100%;

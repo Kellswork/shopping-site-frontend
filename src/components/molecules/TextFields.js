@@ -4,13 +4,15 @@ import { GeneralInput, SearchButton } from '../atoms'
 
 const SearchDiv = styled.div`
   width: 390px;
-  height: 35px;
+  height: 36px;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
 `
 
-export const InputButton = (text) => (
+export const InputButton = (props) => (
   <SearchDiv>
     <GeneralInput />
-    <SearchButton>{text}</SearchButton>
+    <SearchButton>{props.text}</SearchButton>
   </SearchDiv>
 )

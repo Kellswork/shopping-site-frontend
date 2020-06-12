@@ -21,6 +21,8 @@ import { FormButton, SecondaryButton } from '../atoms/buttons'
 import { IconRight } from '../atoms/icons'
 
 const CardContainer = styled.div`
+  margin-top: ${spacingUnit[5]};
+  background: ${neutrals.white};
   width: 100%;
   max-width: 790px;
   height: 569px;
