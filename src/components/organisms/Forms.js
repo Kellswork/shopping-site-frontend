@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Formik, ErrorMessage, isInit } from 'formik'
+import { Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
@@ -15,7 +15,7 @@ import {
   spacingUnit,
   primaryBlue,
 } from '../../utils'
-import { Label, Input, InputDiv } from '../molecules/TextFields'
+import { Label, Input } from '../atoms/input'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
 import { IconRight } from '../atoms/icons'
@@ -66,6 +66,10 @@ const RectDiv = styled.div`
   background: ${primaryBlue[5]};
   margin-bottom: ${spacingUnit[2]};
 `
+const InputDiv = styled.div`
+  margin-bottom: ${spacingUnit[4]};
+`
+
 const LoginDiv = styled.div`
   box-sizing: border-box;
   padding-bottom: ${spacingUnit[8]};
@@ -88,13 +92,13 @@ const LoginDiv = styled.div`
 
 const Para = styled.p`
   padding: 4px;
-    box-sizing: border-box;
-    background: ${errorCol.error100};
-    border-radius: 2px;
-    color: ${errorCol.error800};
-    margin-top: 0px;
-}
+  box-sizing: border-box;
+  background: ${errorCol.error100};
+  border-radius: 2px;
+  color: ${errorCol.error800};
+  margin-top: 0px;
 `
+
 const Loading = styled.div`
   display: flex;
   justify-content: center;

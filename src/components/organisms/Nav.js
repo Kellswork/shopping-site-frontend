@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Logo, SearchButton } from '../atoms'
-import { SearchInput } from '../molecules/TextFields'
+import { Logo } from '../atoms'
 import {
   LabeledCartIcon,
   LabeledHeartIcon,
@@ -14,6 +13,7 @@ import {
   spacingUnit,
   typeScale,
 } from '../../utils'
+import { InputButton } from '../molecules'
 
 const Div = styled.div`
   width: 100%;
@@ -36,11 +36,6 @@ const TopSection = styled.div`
     width: 10%;
     text-align: center;
   }
-`
-const SearchDiv = styled.div`
-  width: 390px;
-  height: 35px;
-  box-sizing: border-box;
 `
 
 const IconDiv = styled.div`
@@ -72,17 +67,14 @@ const LinksDiv = styled.div`
     color: ${neutrals.darkgrey200};
   }
 `
+
 export const Nav = () => (
   <Div>
     <TopSection>
       <div className="logo">
         <Logo />
       </div>
-
-      <SearchDiv>
-        <SearchInput />
-        <SearchButton>Search</SearchButton>
-      </SearchDiv>
+      <InputButton text="Search" />
       <IconDiv>
         <LabeledHeartIcon />
         <LabeledCartIcon />
