@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SignupForm, Nav } from '../organisms'
+import { SignupForm, Nav, Footer } from '../organisms'
 
 const Div = styled.div`
   display: flex;
@@ -10,7 +10,6 @@ const Div = styled.div`
 
 export const SignupPage = () => (
   <Div>
-    <Nav />
-    <SignupForm />
+    <Footer />
   </Div>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Logo } from '../atoms'
+import { LogoDiv, InputButton } from '../molecules'
 import {
   LabeledCartIcon,
   LabeledHeartIcon,
@@ -13,7 +13,6 @@ import {
   spacingUnit,
   typeScale,
 } from '../../utils'
-import { InputButton } from '../molecules'
 
 const Div = styled.div`
   width: 100%;
@@ -73,9 +72,7 @@ const LinksDiv = styled.div`
 export const Nav = () => (
   <Div>
     <TopSection>
-      <div className="logo">
-        <Logo />
-      </div>
+      <LogoDiv />
       <InputButton text="Search" />
       <IconDiv>
         <LabeledHeartIcon />

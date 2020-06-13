@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IconHeart, ShoppingCart, User } from '../atoms'
+import { IconHeart, ShoppingCart, User, Logo } from '../atoms'
 import { headerFont, typeScale, spacingUnit } from '../../utils'
 
 const Div = styled.div`
@@ -33,4 +33,10 @@ export const LabeledUserIcon = () => (
     <User />
     <p>ACCOUNT</p>
   </Div>
+)
+
+export const LogoDiv = () => (
+  <div className="logo">
+    <Logo />
+  </div>
 )
