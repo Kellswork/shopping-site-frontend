@@ -12,12 +12,13 @@ import {
   neutrals,
   spacingUnit,
   typeScale,
+  radius,
 } from '../../utils'
 
 const Div = styled.div`
   width: 100%;
-  max-width: 1200px;
-  height: 128px;
+  max-width: 1300px;
+  height: 144px;
   border: 1px solid ${neutrals.lightgrey200};
   position: relative;
   display: flex;
@@ -25,6 +26,7 @@ const Div = styled.div`
   box-sizing: border-box;
   margin-bottom: ${spacingUnit[5]};
   background: ${neutrals.white};
+  border-radius: ${radius.xs};
 `
 const TopSection = styled.div`
   width: 100%;
@@ -58,7 +60,7 @@ const LineDiv = styled.div`
 const LinksDiv = styled.div`
   font-family: ${headerFont};
   font-weight: ${fontWeight.bold};
-  padding: ${spacingUnit[1]} 0rem;
+  padding-top: ${spacingUnit[3]};
   width: 50%;
   width: 100%;
   max-width: 540px;
@@ -94,6 +96,5 @@ export const Nav = () => (
         <li>Glasses</li>
       </ul>
     </LinksDiv>
-    <LineDiv />
   </Div>
 )

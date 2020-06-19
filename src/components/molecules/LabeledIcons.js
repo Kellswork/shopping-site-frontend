@@ -1,17 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconHeart, ShoppingCart, User, Logo } from '../atoms'
-import { headerFont, typeScale, spacingUnit } from '../../utils'
+import { headerFont, typeScale, spacingUnit, primaryBlue } from '../../utils'
 
 const Div = styled.div`
   font-family: ${headerFont};
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   p {
     font-size: ${typeScale.copyRightText};
     margin-left: ${spacingUnit[0]};
     letter-spacing: 0.5px;
+    padding-top: ${spacingUnit[0]};
+    color: ${primaryBlue[10]};
   }
 `
 export const LabeledHeartIcon = () => (
