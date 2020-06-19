@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   border,
   radius,
@@ -77,6 +77,16 @@ export const FormButton = styled.button`
       cursor: not-allowed;
     }
   }
+
+  ${({ submit }) =>
+    submit &&
+    css`
+      background: #5e8aee;
+      &:hover,
+      &:focus {
+        cursor: not-allowed;
+      }
+    `}
 `
 
 export const SearchButton = styled.button`

@@ -152,7 +152,11 @@ export const SignupForm = () => (
                 {(msg) => <Para>{msg}</Para>}
               </ErrorMessage>
             </InputDiv>
-            <FormButton type="submit" disabled={!formik.isValid}>
+            <FormButton
+              type="submit"
+              disabled={!formik.isValid}
+              submit={formik.isSubmitting}
+            >
               {formik.isSubmitting ? (
                 <Loading>
                   <ReactLoading

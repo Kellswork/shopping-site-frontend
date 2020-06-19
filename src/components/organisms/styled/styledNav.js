@@ -32,12 +32,14 @@ export const TopSection = styled.div`
   .logo {
     width: 10%;
     text-align: center;
+    cursor: pointer;
   }
   .search {
     width: 30%;
     svg {
       position: absolute;
       right: 38%;
+      cursor: pointer;
     }
   }
 `
@@ -69,5 +71,8 @@ export const LinksDiv = styled.div`
     display: flex;
     justify-content: space-around;
     color: ${neutrals.darkgrey200};
+  }
+  li {
+    cursor: pointer;
   }
 `

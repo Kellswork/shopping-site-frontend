@@ -8,6 +8,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   p {
     font-size: ${typeScale.copyRightText};
     margin-left: ${spacingUnit[0]};

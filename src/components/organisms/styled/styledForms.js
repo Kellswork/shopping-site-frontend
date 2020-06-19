@@ -13,7 +13,7 @@ import {
 
 export const CardContainer = styled.div`
   margin-top: ${spacingUnit[5]};
-  margin-bottom: ${spacingUnit[5]};
+  margin-bottom: ${spacingUnit[9]};
   background: ${neutrals.white};
   width: 100%;
   max-width: 790px;

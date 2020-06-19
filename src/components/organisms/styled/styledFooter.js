@@ -86,6 +86,7 @@ export const Content = styled.div`
       display: flex;
       align-items: center;
       width: 100%;
+      cursor: pointer;
     }
   }
   h6 {
@@ -96,6 +97,7 @@ export const Content = styled.div`
   }
   li {
     padding: ${spacingUnit[1]} 0px;
+    cursor: pointer;
   }
 `
 export const RectBox = styled.div`

@@ -9,5 +9,6 @@ export const spacingUnit = {
   6: '2rem',
   7: '2.25rem',
   8: '2.5rem',
+  9: '3rem',
 }
 // RUI p63
