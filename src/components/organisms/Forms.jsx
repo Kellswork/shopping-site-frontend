@@ -49,7 +49,7 @@ const signupSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .required('required')
-    .oneOf([yup.ref('password'), null], 'password does not match'),
+    .oneOf([yup.ref('password'), null], 'passwords do not match'),
 })
 
 export const SignupForm = () => (
