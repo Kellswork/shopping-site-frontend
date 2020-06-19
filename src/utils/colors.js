@@ -29,3 +29,7 @@ export const errorCol = {
   error100: 'hsl(360, 100%, 95%)',
   error800: 'hsl(352, 90%, 35%)',
 }
+
+export const warning = {
+  7: '#F0B429',
+}

@@ -5,11 +5,10 @@ import { neutrals, spacingUnit } from '../../utils'
 
 const Container = styled.div`
   display: flex;
-  max-width: 1200px;
   flex-direction: column;
   align-items: center;
-  border: 1px solid ${neutrals.lightgrey100};
-  background-color: ${neutrals.lightgrey100};
+  /* border: 1px solid ${neutrals.lightgrey100}; */
+  /* background-color: ${neutrals.white}; */
   margin: 0 auto;
   margin-top: ${spacingUnit[1]};
 `

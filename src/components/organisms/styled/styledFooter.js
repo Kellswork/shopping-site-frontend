@@ -1,14 +1,31 @@
 import styled from 'styled-components'
-import { typeScale, headerFont, neutrals, spacingUnit } from '../../../utils'
+import {
+  typeScale,
+  headerFont,
+  neutrals,
+  spacingUnit,
+  primaryBlue,
+} from '../../../utils'
+
+export const MainContainer = styled.div`
+  margin-top: ${spacingUnit[5]};
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  margin: 0 auto;
+  font-family: ${headerFont};
+`
 
 export const Container = styled.div`
-  margin-top: ${spacingUnit[5]};
-  background: ${neutrals.lightgrey200};
+  background: ${primaryBlue[8]};
   font-family: ${headerFont};
   width: 100%;
-  max-width: 1200px;
+  margin: 0 auto;
+  max-width: 1100px;
   height: 250px;
   padding-bottom: ${spacingUnit[2]};
+  position: relative;
+  z-index: 10;
 
   .cards {
     width: 100px;
@@ -16,41 +33,39 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: ${neutrals.lightgrey100};
+    margin-top: 30px;
   }
   p,
   li {
-    font-size: 14px;
+    font-size: 12px;
     color: ${neutrals.darkgrey200};
-  }
-  .copyright {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: ${typeScale.copyRightText};
+    color: ${neutrals.white};
   }
 `
 export const Content = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  padding: ${spacingUnit[5]} ${spacingUnit[5]} ${spacingUnit[3]};
+  justify-content: space-around;
+  padding: ${spacingUnit[6]} ${spacingUnit[5]} ${spacingUnit[3]};
   box-sizing: border-box;
   .one {
     line-height: 1.3;
-    width: 30%;
+    width: 28%;
     .logo {
-      padding-left: ${spacingUnit[2]};
       padding-bottom: ${spacingUnit[1]};
+      padding-top: ${spacingUnit[0]};
+    }
+    p {
+      line-height: 1.4;
     }
   }
   .two,
   .three {
     width: 15%;
-    text-align: center;
     padding-top: ${spacingUnit[1]};
   }
   .four {
-    text-align: center;
     width: 30%;
     padding-top: ${spacingUnit[1]};
 
@@ -63,32 +78,40 @@ export const Content = styled.div`
     }
   }
   .socialMedia {
-    padding-top: ${spacingUnit[2]};
+    margin-top: 30px;
+    width: 30%;
 
-    p {
-      padding-bottom: ${spacingUnit[1]};
-    }
     .socialIcons {
-      width: 20%;
-      margin: 0 auto;
       justify-content: space-around;
       display: flex;
+      align-items: center;
+      width: 100%;
     }
   }
   h6 {
-    font-size: ${typeScale.h6};
+    font-size: ${typeScale.helperText};
     padding-bottom: ${spacingUnit[2]};
-    color: ${neutrals.darkgrey200};
+    color: ${neutrals.lightgrey100};
     font-weight: 700;
   }
   li {
     padding: ${spacingUnit[1]} 0px;
   }
 `
-export const LineDiv = styled.div`
+export const RectBox = styled.div`
   width: 100%;
-  background: #e4e7eb;
-  max-width: 820px;
-  margin: 0 auto;
-  height: 2px;
+  height: 140px;
+  background: red;
+  position: absolute;
+  background-color: ${neutrals.lightgrey100};
+  top: 220px;
+  bottom: 0;
+
+  .copyright {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${typeScale.copyRightText};
+  }
 `

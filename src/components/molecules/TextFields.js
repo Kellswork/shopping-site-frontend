@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { GeneralInput, SearchButton } from '../atoms'
-import { spacingUnit, neutrals } from '../../utils'
+import { GeneralInput, SearchButton, SearchIcon } from '../atoms'
+import { spacingUnit, neutrals, radius, typeScale } from '../../utils'
 
 const Div = styled.div`
   width: 100%;
@@ -14,10 +14,18 @@ const Div = styled.div`
 `
 const Input = styled(GeneralInput)`
   padding-left: ${spacingUnit[1]};
+  width: 100%;
+  position: relative;
   &::placeholder {
-    font-size: 14px;
+    font-size: ${typeScale.helperText};
     color: ${neutrals.lightgrey300};
   }
+  border: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+`
+const SInput = styled(Input)`
+  border-radius: ${radius.sm};
 `
 export const InputButton = (props) => (
   <Div>
@@ -26,7 +34,18 @@ export const InputButton = (props) => (
   </Div>
 )
 
+export const SearchInput = (props) => (
+  <Div>
+    <SInput placeholder={props.placeholder} />
+    <SearchIcon />
+  </Div>
+)
+
 InputButton.propTypes = {
   placeholder: PropTypes.string,
   text: PropTypes.string,
+}
+
+SearchInput.propTypes = {
+  placeholder: PropTypes.string,
 }

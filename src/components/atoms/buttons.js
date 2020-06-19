@@ -6,6 +6,7 @@ import {
   headerFont,
   primaryBlue,
   neutrals,
+  warning,
 } from '../../utils'
 
 export const PrimaryButton = styled.button`
@@ -79,9 +80,9 @@ export const FormButton = styled.button`
 `
 
 export const SearchButton = styled.button`
-  padding: 4px 24px;
+  padding: 10px 24px;
   height: 34px;
-  background: #52606d;
+  background: ${warning[7]};
   box-sizing: border-box;
   font-family: Inter;
   font-style: normal;
