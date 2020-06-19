@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { GeneralInput, SearchButton } from '../atoms'
 import { spacingUnit, neutrals } from '../../utils'
 
-const SearchDiv = styled.div`
-  width: 390px;
+const Div = styled.div`
+  width: 100%;
   height: 36px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   justify-content: center;
 `
-const EmailInput = styled(GeneralInput)`
+const Input = styled(GeneralInput)`
   padding-left: ${spacingUnit[1]};
   &::placeholder {
     font-size: 14px;
@@ -19,8 +20,13 @@ const EmailInput = styled(GeneralInput)`
   }
 `
 export const InputButton = (props) => (
-  <SearchDiv>
-    <EmailInput placeholder={props.placeholder} />
+  <Div>
+    <Input placeholder={props.placeholder} />
     <SearchButton className="searchbtn">{props.text}</SearchButton>
-  </SearchDiv>
+  </Div>
 )
+
+InputButton.propTypes = {
+  placeholder: PropTypes.string,
+  text: PropTypes.string,
+}

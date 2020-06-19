@@ -11,8 +11,15 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
       mode,
       module: {
         rules: [
+          {
+            test: /\.(js|jsx)$/i,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            resolve: {
+              extensions: ['.js', '.jsx'],
+            },
+          },
           { test: /\.(jpe?g|png)$/, use: 'url-loader' },
-          { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
         ],
       },
       plugins: [

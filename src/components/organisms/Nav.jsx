@@ -37,6 +37,9 @@ const TopSection = styled.div`
     width: 10%;
     text-align: center;
   }
+  .search {
+    width: 30%;
+  }
 `
 
 const IconDiv = styled.div`
@@ -73,7 +76,9 @@ export const Nav = () => (
   <Div>
     <TopSection>
       <LogoDiv />
-      <InputButton text="Search" />
+      <div className="search">
+        <InputButton text="Search" />
+      </div>
       <IconDiv>
         <LabeledHeartIcon />
         <LabeledCartIcon />

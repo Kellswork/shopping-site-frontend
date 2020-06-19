@@ -1,97 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LogoDiv, InputButton } from '../molecules'
-import { neutrals, headerFont, typeScale, spacingUnit } from '../../utils'
 import { Twitter, Facebook, Email, CopyrightLogo } from '../atoms'
 import verve from '../../asset/verve.png'
 import visa from '../../asset/visa.png'
 import mastercard from '../../asset/mastercard.png'
+import { Container, Content, LineDiv } from './styled'
 
-const Container = styled.div`
-  background: ${neutrals.white};
-  font-family: ${headerFont};
-  max-width: 1200px;
-  height: 250px;
-  
-
-  .cards {
-    width: 100px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  p,
-  li {
-    font-size: 14px;
-    color: ${neutrals.darkgrey200};
-  }
-  .copyright {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: ${typeScale.copyRightText};
-  }
-`
-const Content = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  padding: ${spacingUnit[5]} ${spacingUnit[3]};
-  box-sizing: border-box;
-
-  .one {
-    line-height: 1.3;
-    width: 30%;
-  }
-  .two,
-  .three {
-    width: 15%;
-    text-align: center;
-  }
-  .four {
-    text-align: center;
-    p {
-      padding-top: ${spacingUnit[1]};
-      padding-bottom: ${spacingUnit[3]}
-    }
-    .searchbtn {
-      padding: 1px 6px;
-    }
-  }
-  .socialMedia {
-    padding-top: ${spacingUnit[2]};
-
-    p {
-      padding-bottom: ${spacingUnit[2]};
-    }
-    .socialIcons {
-      width: 20%;
-      margin: 0 auto;
-      justify-content: space-around;
-      display: flex;
-    }
-  }
-  h6 {
-    font-size: ${typeScale.h6};
-    padding-bottom: ${spacingUnit[2]};
-    color: ${neutrals.darkgrey200};
-    font-weight: 700;
-  }
-  /* ul {
-    padding-top: ${spacingUnit[2]};
-  } */
-  li {
-    padding: ${spacingUnit[1]} 0px;
-  }
-`
-const LineDiv = styled.div`
-  width: 100%;
-  background: #e4e7eb;
-  max-width: 820px;
-  margin: 0 auto;
-  height: 2px;
-`
 export const Footer = () => (
   <Container>
     <Content>
