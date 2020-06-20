@@ -27,8 +27,7 @@ export const PrimaryButton = styled.button`
 `
 
 export const SecondaryButton = styled.button`
-  width: 90.09px;
-  height: 40px;
+  padding: 12px 18px;
   background: transparent;
   border: ${border(primaryBlue[6])[3]};
   box-sizing: border-box;

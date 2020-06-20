@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { neutrals } from './utils'
-import { SignupPage } from './components/pages/Signup'
+import { SignupPage, EmailVerification } from './components/pages'
 const Div = styled.div`
   background-color: ${neutrals.white};
   width: 100%;
@@ -10,9 +11,18 @@ const Div = styled.div`
 
 function App() {
   return (
-    <Div>
-      <SignupPage />
-    </Div>
+    <Switch>
+      <Div>
+        <Route exact path="/" component={SignupPage} />
+        <Route path="/verify" component={EmailVerification} />
+        <Route path="/signup">
+          <SignupPage />
+        </Route>
+        <Route path="/emailverification">
+          <EmailVerification />
+        </Route>
+      </Div>
+    </Switch>
   )
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
@@ -52,7 +51,7 @@ const signupSchema = yup.object().shape({
     .oneOf([yup.ref('password'), null], 'passwords do not match'),
 })
 
-export const SignupForm = () => (
+export const SignupForm = (props) => (
   <CardContainer>
     <h4> Signup to shop our lovely collections! </h4>
     <CardContent>
@@ -67,8 +66,9 @@ export const SignupForm = () => (
         validationSchema={signupSchema}
         onSubmit={(values, { setSubmitting }) => {
           axios
-            .post('http://localhost:3500/api/v1/auth/register', values)
-            .then((response) => console.log(response.data))
+            .post('http://localhost:3000/api/v1/auth/register', values)
+            // eslint-disable-next-line react/prop-types
+            .then((response) => props.history.push('/EmailVerification'))
             .catch((error) => console.log(error.response.data.error))
           setSubmitting(false)
         }}
@@ -87,7 +87,7 @@ export const SignupForm = () => (
                     error={formik.touched.firstname && formik.errors.firstname}
                   />
                 </Label>
-                <ErrorMessage component="p" name="firstname">
+                <ErrorMessage name="firstname">
                   {(msg) => <Para>{msg}</Para>}
                 </ErrorMessage>
               </InputDiv>
