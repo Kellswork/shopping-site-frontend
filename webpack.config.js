@@ -28,6 +28,9 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
           filename: 'index.html',
         }),
       ],
+      devServer: {
+        historyApiFallback: true,
+      },
     },
     modeConfig(mode),
   )
