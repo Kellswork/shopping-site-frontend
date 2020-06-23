@@ -11,7 +11,15 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
       mode,
       module: {
         rules: [
-          { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+          {
+            test: /\.(js|jsx)$/i,
+            use: 'babel-loader',
+            exclude: /node_modules/,
+            resolve: {
+              extensions: ['.js', '.jsx'],
+            },
+          },
+          { test: /\.(jpe?g|png)$/, use: 'url-loader' },
         ],
       },
       plugins: [
@@ -20,6 +28,9 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
           filename: 'index.html',
         }),
       ],
+      devServer: {
+        historyApiFallback: true,
+      },
     },
     modeConfig(mode),
   )
