@@ -45,6 +45,7 @@ export const CardContent = styled.div`
 
 export const Form = styled.form`
   max-width: 394px;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

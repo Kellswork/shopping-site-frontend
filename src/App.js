@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { neutrals } from './utils'
-import { SignupPage, EmailVerification, VerifyEmail } from './components/pages'
+import {
+  SignupPage,
+  EmailVerification,
+  VerifyEmail,
+  LoginPage,
+} from './components/pages'
 const Div = styled.div`
   background-color: ${neutrals.white};
   width: 100%;
@@ -16,6 +21,9 @@ function App() {
         <Switch>
           <Route path="/signup">
             <SignupPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
           <Route path="/emailverification">
             <EmailVerification />
