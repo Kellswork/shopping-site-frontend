@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
+// import { ToastContainer, toast } from 'react-toastify'
+import { Alert } from '../atoms'
 
 import { Label, Input } from '../atoms/input'
 
@@ -27,7 +29,6 @@ const LoginSchema = yup.object().shape({
   password: yup
     .string()
     .required('Password is required')
-    .min(5, 'password must be atleast 5 characters')
     .max(50, 'maximum of 50 characters')
     .trim(),
 })
@@ -35,14 +36,30 @@ const LoginSchema = yup.object().shape({
 const url = 'http://localhost:3000/api/v1/auth/login'
 
 export const LoginForm = () => {
+  const [msgResponse, setMsgResponse] = useState('')
+  const [error, setError] = useState(false)
+
+  const showAlert = msgResponse && (
+    <Alert modifiers={['success', error && 'error']}>
+      <p>
+        <strong>{msgResponse}</strong>
+      </p>
+    </Alert>
+  )
+
+  // const notify = (value) => toast(value)
   const handleSubmit = (values, { setSubmitting }) => {
     axios
       .post(url, values)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data.message)
+        // notify(response.data.message)
+        setMsgResponse(response.data)
       })
-      .catch((error) => {
-        console.log(error.response.data.error)
+      .catch((err) => {
+        console.log(err.response.data)
+        setError(true)
+        setMsgResponse(err.response.data.error)
       })
 
     setSubmitting(false)
@@ -50,6 +67,7 @@ export const LoginForm = () => {
 
   return (
     <CardContainer>
+      {showAlert}
       <h4> Account Login </h4>
       <CardContent>
         <Formik
@@ -113,6 +131,7 @@ export const LoginForm = () => {
         </Formik>
         <RectDiv />
         <LoginDiv>
+          <p>Forgot password?</p>
           <p>Don't have an Account?</p>
           <SecondaryButton>
             SIGNUP

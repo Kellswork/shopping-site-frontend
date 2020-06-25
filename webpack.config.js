@@ -31,6 +31,9 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) =>
       devServer: {
         historyApiFallback: true,
       },
+      externals: {
+        reactToastify: 'react-toastify',
+      },
     },
     modeConfig(mode),
   )

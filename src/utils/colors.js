@@ -27,9 +27,20 @@ export const neutrals = {
 
 export const errorCol = {
   error100: 'hsl(360, 100%, 95%)',
+  error200: 'hsl(360, 100%, 87%)',
+  error400: 'hsl(360, 91%, 69%)',
+  error700: 'hsl(354, 85%, 44%)',
   error800: 'hsl(352, 90%, 35%)',
 }
 
 export const warning = {
   7: '#F0B429',
+}
+
+export const success = {
+  100: 'hsl(152, 68%, 96%)',
+  200: 'hsl(154, 75%, 87%)',
+  400: 'hsl(158, 58%, 62%)',
+  700: 'hsl(164, 71%, 34%)',
+  800: 'hsl(166, 72%, 28%)',
 }
