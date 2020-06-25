@@ -79,7 +79,7 @@ export const LoginForm = () => {
           onSubmit={handleSubmit}
         >
           {(formik) => (
-            <Form onSubmit={formik.handleSubmit}>
+            <Form onSubmit={formik.handleSubmit} marginButtom="5rem">
               <InputDiv>
                 <Label htmlFor="email">
                   Email<span className="req"> *</span>
@@ -131,7 +131,7 @@ export const LoginForm = () => {
         </Formik>
         <RectDiv />
         <LoginDiv>
-          <p>Forgot password?</p>
+          <p className="forgot">Forgot your password?</p>
           <p>Don't have an Account?</p>
           <SecondaryButton>
             SIGNUP

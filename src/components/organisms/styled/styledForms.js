@@ -49,6 +49,7 @@ export const Form = styled.form`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  margin-bottom: ${(props) => props.marginButtom};
 `
 
 export const FloatDiv = styled.div`
@@ -76,6 +77,12 @@ export const LoginDiv = styled.div`
     font-weight: bold;
     font-size: ${typeScale.para};
     color: ${neutrals.darkgrey300};
+  }
+  .forgot {
+    font-style: italic;
+    font-weight: 400;
+    font-size: ${typeScale.text};
+    cursor: pointer;
   }
   button {
     font-size: ${typeScale.helperText};
