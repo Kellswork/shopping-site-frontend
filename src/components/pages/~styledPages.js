@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const EmailVerificationCard = styled.div`
   padding-top: 5%;
-  height: ${(props) => props.height || '40px'};
+  height: ${(props) => props.height || '55%'};
   text-align: center;
   font-family: ${headerFont};
   justify-content: space-around;

@@ -38,7 +38,7 @@ export const VerifyEmail = () => {
     <Container>
       <Nav />
       <CardContainer>
-        <EmailVerificationCard height="55px">
+        <EmailVerificationCard height="40%">
           <CheckMark />
           {isVerifying ? 'confirming....' : <h6>{msg}</h6>}
         </EmailVerificationCard>
