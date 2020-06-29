@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { applyStyleModifiers } from 'styled-components-modifiers'
 import { headerFont, errorCol, typeScale, success } from '../../utils'
 
@@ -7,7 +7,6 @@ const ALERT_MODIFIERS = {
     background: ${errorCol.error100};
     border: 1px solid ${errorCol.error400};
     color: ${errorCol.error700};
-    margin-left: 20px;
       `,
   success: () => `
     background: ${success[100]};
@@ -18,29 +17,24 @@ const ALERT_MODIFIERS = {
 
 export const Alert = styled.div`
   width: 70%;
-  padding: 20px;
+  padding: 1rem 0.75rem;
+  margin-left: 10px;
+  margin-top: 10px;
   border-radius: 4px;
   position: relative;
   font-family: ${headerFont};
+  .closeIconWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    color: red;
+  }
 
-  p{ 
-      font-size: ${typeScale.para};
+  p {
+    font-size: ${typeScale.para};
   }
   ${applyStyleModifiers(ALERT_MODIFIERS)};
-
-  /* ${({ error }) =>
-    error &&
-    css`
-      background: ${errorCol.error100};
-      border: 1px solid ${errorCol.error400};
-      color: ${errorCol.error400};
-    `};
-  ${({ success }) =>
-    error &&
-    css`
-      background: ${errorCol.error100};
-      border: 1px solid ${errorCol.error400};
-      color: ${errorCol.error400};
-    `} */
-}
 `
+// export const CloseDiv = styled.span``

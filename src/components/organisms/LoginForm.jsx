@@ -4,12 +4,9 @@ import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
 // import { ToastContainer, toast } from 'react-toastify'
-import { Alert } from '../atoms'
-
-import { Label, Input } from '../atoms/input'
+import { Alert, Label, Input, IconRight, Close, CloseDiv } from '../atoms'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
-import { IconRight } from '../atoms/icons'
 import {
   CardContainer,
   CardContent,
@@ -41,13 +38,13 @@ export const LoginForm = () => {
 
   const showAlert = msgResponse && (
     <Alert modifiers={['success', error && 'error']}>
-      <p>
-        <strong>{msgResponse}</strong>
-      </p>
+      <strong>{msgResponse}</strong>
+      <span className="closeIconWrapper">
+        <Close />
+      </span>
     </Alert>
   )
 
-  // const notify = (value) => toast(value)
   const handleSubmit = (values, { setSubmitting }) => {
     axios
       .post(url, values)
