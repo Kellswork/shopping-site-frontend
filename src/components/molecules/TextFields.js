@@ -11,6 +11,7 @@ const Div = styled.div`
   align-items: center;
   box-sizing: border-box;
   justify-content: center;
+  position: relative;
 `
 const Input = styled(GeneralInput)`
   padding-left: ${spacingUnit[1]};

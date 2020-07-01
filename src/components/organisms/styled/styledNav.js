@@ -24,8 +24,10 @@ export const Div = styled.div`
 `
 export const TopSection = styled.div`
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: ${spacingUnit[1]} 0rem;
   box-sizing: border-box;
@@ -38,7 +40,7 @@ export const TopSection = styled.div`
     width: 30%;
     svg {
       position: absolute;
-      right: 38%;
+      left: 90%;
       cursor: pointer;
     }
   }
@@ -47,10 +49,10 @@ export const TopSection = styled.div`
 export const IconDiv = styled.div`
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  margin-right: ${spacingUnit[1]};
+  align-items: baseline;
+  /* margin-right: ${spacingUnit[1]}; */
   box-sizing: border-box;
-  width: 14%;
+  width: 16%;
 `
 export const LineDiv = styled.div`
   width: 100%;

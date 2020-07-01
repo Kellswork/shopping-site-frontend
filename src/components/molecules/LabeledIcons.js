@@ -10,7 +10,7 @@ const Div = styled.div`
   align-items: center;
   cursor: pointer;
   p {
-    font-size: ${typeScale.copyRightText};
+    font-size: ${typeScale.smallText};
     margin-left: ${spacingUnit[0]};
     letter-spacing: 0.5px;
     padding-top: ${spacingUnit[0]};

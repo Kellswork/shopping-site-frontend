@@ -12,6 +12,8 @@ export const typeScale = {
   text: '0.88rem',
   helperText: '0.8rem',
   copyRightText: '0.7rem',
+  smallText: '0.6rem',
+
 }
 
 export const fontWeight = {

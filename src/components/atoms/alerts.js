@@ -37,4 +37,3 @@ export const Alert = styled.div`
   }
   ${applyStyleModifiers(ALERT_MODIFIERS)};
 `
-// export const CloseDiv = styled.span``
