@@ -7,11 +7,17 @@ const ALERT_MODIFIERS = {
     background: ${errorCol.error100};
     border: 1px solid ${errorCol.error400};
     color: ${errorCol.error700};
+    svg{
+      fill: ${errorCol[700]};
+    }
       `,
   success: () => `
     background: ${success[100]};
     border: 1px solid ${success[400]};
     color: ${success[700]};
+    svg{
+      fill: ${success[700]};
+    }
       `,
 }
 
@@ -34,6 +40,9 @@ export const Alert = styled.div`
 
   p {
     font-size: ${typeScale.para};
+  }
+  svg {
+    cursor: pointer;
   }
   ${applyStyleModifiers(ALERT_MODIFIERS)};
 `

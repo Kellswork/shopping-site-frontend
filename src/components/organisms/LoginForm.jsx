@@ -3,7 +3,6 @@ import { Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
-// import { ToastContainer, toast } from 'react-toastify'
 import { Alert, Label, Input, IconRight, Close } from '../atoms'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
@@ -55,6 +54,10 @@ export const LoginForm = () => {
         setError(true)
         setMsgResponse(err.response.data.error)
       })
+
+    // setTimeout(() => {
+    //   setMsgResponse('login successful')
+    // }, 4000)
 
     setSubmitting(false)
   }
