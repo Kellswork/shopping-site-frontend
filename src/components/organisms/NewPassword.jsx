@@ -43,10 +43,8 @@ export const NewPassword = () => {
     axios
       .post(url, values)
       .then((response) => {
-        setSubmitting(true)
         setMsgResponse(response.data.message)
         console.log('submitting...')
-        setSubmitting(false)
       })
       .catch((err) => {
         console.log(err.response.data)

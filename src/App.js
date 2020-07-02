@@ -9,6 +9,7 @@ import {
   LoginPage,
   LandingPage,
   NewPasswordPage,
+  ResetPasswordPage,
 } from './components/pages'
 const Div = styled.div`
   background-color: ${neutrals.white};
@@ -36,8 +37,11 @@ function App() {
           <Route path="/verifyEmail">
             <VerifyEmail />
           </Route>
-          <Route path="/newPassword">
+          <Route path="/resetPassword">
             <NewPasswordPage />
+          </Route>
+          <Route path="/newPassword">
+            <ResetPasswordPage />
           </Route>
         </Switch>
       </Div>
