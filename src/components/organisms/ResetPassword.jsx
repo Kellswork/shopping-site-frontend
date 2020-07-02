@@ -1,44 +1,30 @@
 import React, { useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
 import { Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
-import { Alert, Label, Input, IconRight, Close, CloseDiv } from '../atoms'
+import { Alert, Label, Input, Close } from '../atoms'
 
-import { FormButton, SecondaryButton } from '../atoms/buttons'
+import { FormButton } from '../atoms/buttons'
 import {
   CardContainer,
   CardContent,
   Form,
-  RectDiv,
   InputDiv,
-  LoginDiv,
   Para,
   Loading,
 } from './styled'
 
-const resetPasswordSchema = yup.object().shape({
-  password: yup
+const ResetPassordSchema = yup.object().shape({
+  email: yup
     .string()
-    .required('Password is required')
-    .min(5, 'password must be atleast 5 characters')
-    .max(50, 'maximum of 50 characters')
-    .trim(),
-  confirmPassword: yup
-    .string()
-    .required('required')
-    .oneOf([yup.ref('password'), null], 'passwords do not match'),
+    .email('Please input a valid email')
+    .required('email is required'),
 })
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search)
-}
-export const ResetPassword = () => {
-  const query = useQuery()
-  const token = query.get('token')
-  const url = `http://localhost:3000/api/v1/auth/newPassword?token=${token}`
+const url = 'http://localhost:3000/api/v1/auth/resetPassword'
 
+export const ResetPassword = () => {
   const [msgResponse, setMsgResponse] = useState('')
   const [error, setError] = useState(false)
 
@@ -58,55 +44,38 @@ export const ResetPassword = () => {
         setMsgResponse(response.data.message)
       })
       .catch((err) => {
-        console.log(err.response.data)
         setError(true)
         setMsgResponse(err.response.data.error)
       })
+
     setSubmitting(false)
   }
 
   return (
     <CardContainer>
       {showAlert}
-      <h4> RESET PASSWORD </h4>
+      <h4> FORGOT PASSWORD </h4>
       <CardContent>
         <Formik
           initialValues={{
             email: '',
           }}
-          validationSchema={resetPasswordSchema}
+          validationSchema={ResetPassordSchema}
           onSubmit={handleSubmit}
         >
           {(formik) => (
             <Form onSubmit={formik.handleSubmit} marginButtom="5rem">
               <InputDiv>
-                <Label htmlFor="password">
-                  Password<span className="req"> *</span>
+                <Label htmlFor="email">
+                  Email<span className="req"> *</span>
                   <Input
-                    type="password"
-                    name="password"
-                    {...formik.getFieldProps('password')}
-                    error={formik.touched.password && formik.errors.password}
+                    type="email"
+                    name="email"
+                    {...formik.getFieldProps('email')}
+                    error={formik.touched.email && formik.errors.email}
                   />
                 </Label>
-                <ErrorMessage name="password">
-                  {(msg) => <Para>{msg}</Para>}
-                </ErrorMessage>
-              </InputDiv>
-              <InputDiv>
-                <Label htmlFor="confirmPassword">
-                  Confirm Password<span className="req"> *</span>
-                  <Input
-                    type="password"
-                    name="confirmPassword"
-                    {...formik.getFieldProps('confirmPassword')}
-                    error={
-                      formik.touched.confirmPassword &&
-                      formik.errors.confirmPassword
-                    }
-                  />
-                </Label>
-                <ErrorMessage name="confirmPassword">
+                <ErrorMessage name="email">
                   {(msg) => <Para>{msg}</Para>}
                 </ErrorMessage>
               </InputDiv>
@@ -125,7 +94,7 @@ export const ResetPassword = () => {
                     />
                   </Loading>
                 ) : (
-                  `RESET PASSWORD`
+                  `SEND PASSWORD LINK`
                 )}
               </FormButton>
             </Form>

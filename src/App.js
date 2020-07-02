@@ -38,10 +38,10 @@ function App() {
             <VerifyEmail />
           </Route>
           <Route path="/resetPassword">
-            <NewPasswordPage />
+            <ResetPasswordPage />
           </Route>
           <Route path="/newPassword">
-            <ResetPasswordPage />
+            <NewPasswordPage />
           </Route>
         </Switch>
       </Div>

@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import axios from 'axios'
 import ReactLoading from 'react-loading'
 // import { ToastContainer, toast } from 'react-toastify'
-import { Alert, Label, Input, IconRight, Close, CloseDiv } from '../atoms'
+import { Alert, Label, Input, IconRight, Close } from '../atoms'
 
 import { FormButton, SecondaryButton } from '../atoms/buttons'
 import {
@@ -49,12 +49,9 @@ export const LoginForm = () => {
     axios
       .post(url, values)
       .then((response) => {
-        console.log(response.data.message)
-        // notify(response.data.message)
-        setMsgResponse(response.data)
+        setMsgResponse(response.data.message)
       })
       .catch((err) => {
-        console.log(err.response.data)
         setError(true)
         setMsgResponse(err.response.data.error)
       })
