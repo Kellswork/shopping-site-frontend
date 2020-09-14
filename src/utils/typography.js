@@ -1,5 +1,5 @@
 export const headerFont = "'Inter', sans-serif"
-export const textFont = "'Roboto', sans-serif'"
+export const textFont = "'Roboto Slab', serif"
 
 export const typeScale = {
   H1: '2.4rem',
@@ -13,7 +13,6 @@ export const typeScale = {
   helperText: '0.8rem',
   copyRightText: '0.7rem',
   smallText: '0.6rem',
-
 }
 
 export const fontWeight = {
