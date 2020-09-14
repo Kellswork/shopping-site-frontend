@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { Footer } from '../organisms'
 import { Container } from './~styledPages'
 import headerImage from '../../asset/header-card.png'
-import { Div } from '../organisms/styled'
+import { LinksDiv } from '../organisms/styled'
+import { LogoDiv } from '../molecules'
+import {SearchIcon} from '../atoms'
 import {
   headerFont,
   fontWeight,
@@ -20,12 +22,24 @@ export const BottomNav = styled.div`
   height: 106px;
   border: 1px solid ${neutrals.lightgrey200};
   position: relative;
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
   margin-bottom: ${spacingUnit[5]};
   background: ${neutrals.lightgrey100};
   border-radius: ${radius.xs};
+  .bottom-nav-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 900px;
+    margin-left: 5px;
+    margin: 0 auto;
+    .logo {
+      margin-left: ${spacingUnit[1]};
+    }
+    li {
+      padding: 10px;
+    }
+  }
 `
 
 export const TopNav = styled.div`
@@ -81,7 +95,22 @@ export const LandingPage = () => (
         <p>SIGNUP</p>
       </div>
     </TopNav>
-    <BottomNav></BottomNav>
+    <BottomNav>
+      <div className="bottom-nav-content">
+        <LogoDiv />
+        <LinksDiv>
+          <ul>
+            <li>WEDDING RINGS</li>
+            <li>NECKLACES</li>
+            <li>KNUCKLE RINGS</li>
+            <li>GLASSES</li>
+          </ul>
+        </LinksDiv>
+        <div>
+          <SearchIcon />
+        </div>
+      </div>
+    </BottomNav>
     <Footer />
   </Container>
 )

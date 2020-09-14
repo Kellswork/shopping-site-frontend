@@ -37,7 +37,7 @@ export const InputButton = (props) => (
 
 export const SearchInput = (props) => (
   <Div>
-    <SInput placeholder={props.placeholder} />
+    {/* <SInput placeholder={props.placeholder} /> */}
     <SearchIcon />
   </Div>
 )

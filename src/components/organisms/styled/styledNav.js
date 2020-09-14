@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import {
-  headerFont,
+  textFont,
   fontWeight,
   neutrals,
   spacingUnit,
@@ -60,15 +60,15 @@ export const LineDiv = styled.div`
   background: ${neutrals.lightgrey200};
 `
 export const LinksDiv = styled.div`
-  font-family: ${headerFont};
-  font-weight: ${fontWeight.bold};
-  padding-top: ${spacingUnit[3]};
-  width: 50%;
-  width: 100%;
-  max-width: 540px;
+  font-family: ${textFont};
+  font-weight: ${fontWeight.normal};
+  /* padding-top: ${spacingUnit[3]}; */
+  /* width: 50%;
+  width: 100%; */
+  /* max-width: 540px; */
   margin: 0 auto;
   ul {
-    font-size: ${typeScale.text};
+    font-size: ${typeScale.helperText};
     letter-spacing: 0.5px;
     display: flex;
     justify-content: space-around;
