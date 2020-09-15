@@ -58,7 +58,7 @@ export const TopNav = styled.div`
   align-items: center;
   font-size: ${typeScale.copyRightText};
   font-family: ${textFont};
-  margin-top: 10px;
+  margin-top: ${spacingUnit[0]};
   padding: 20px;
   color: #373737b0;
   .left-content {
