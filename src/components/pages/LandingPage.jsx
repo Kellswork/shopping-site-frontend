@@ -191,6 +191,7 @@ const NewArrivals = styled.div`
   .prod-section {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .prod-image {
     width: 220px;
