@@ -29,9 +29,8 @@ import knuckleRings from '../../asset/card-images/knuckle-rings.png'
 
 export const BottomNav = styled.div`
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1300px; */
   height: 140px;
-  /* border: 1px solid ${neutrals.lightgrey200}; */
   position: relative;
   box-sizing: border-box;
   background: ${neutrals.lightgrey100};
@@ -59,6 +58,7 @@ export const TopNav = styled.div`
   align-items: center;
   font-size: ${typeScale.copyRightText};
   font-family: ${textFont};
+  margin-top: 20px;
   padding: 20px;
   color: #373737b0;
   .left-content {
@@ -74,19 +74,10 @@ export const TopNav = styled.div`
     width: 27%;
   }
 `
-// const Header = styled.header`
-//   width: 100%;
-//   position: relative;
-//   max-width: 1300px;
-//   margin: 0 auto;
-// `
+
 const HeaderCard = styled.div`
-  /* left: 50%;
-  margin-left: -550px;
-  top: 70%; */
   max-width: 1100px;
   border-radius: 2px;
-  /* position: absolute; */
   position: relative;
   margin: 0 auto;
   margin-top: -40px;
@@ -201,6 +192,12 @@ const NewArrivals = styled.div`
     text-transform: capitalize;
     font-family: ${headerFont};
     text-align: center;
+    margin-bottom: ${spacingUnit[1]};
+  }
+  h6 {
+    font-size: ${typeScale.text};
+    font-family: ${headerFont};
+    text-align: center;
   }
   .prod-section {
     display: flex;
@@ -240,38 +237,38 @@ export const LandingPage = () => (
         <p>SIGNUP</p>
       </div>
     </TopNav>
-      <BottomNav>
-        <div className="bottom-nav-content">
-          <LogoDiv />
-          <LinksDiv>
-            <ul>
-              <li>WEDDING RINGS</li>
-              <li>NECKLACES</li>
-              <li>KNUCKLE RINGS</li>
-              <li>GLASSES</li>
-            </ul>
-          </LinksDiv>
-          <div>
-            <SearchIcon />
-          </div>
+    <BottomNav>
+      <div className="bottom-nav-content">
+        <LogoDiv />
+        <LinksDiv>
+          <ul>
+            <li>WEDDING RINGS</li>
+            <li>NECKLACES</li>
+            <li>KNUCKLE RINGS</li>
+            <li>GLASSES</li>
+          </ul>
+        </LinksDiv>
+        <div>
+          <SearchIcon />
         </div>
-      </BottomNav>
+      </div>
+    </BottomNav>
 
-      <HeaderCard>
-        <div className="header-content">
-          <h1>Ring Lover ?</h1>
-          <h5>we’ve got a collection to die for</h5>
-          <ViewMoreButton>View More</ViewMoreButton>
-        </div>
-        <div className="header-images">
-          <img src={diamondRing2} alt="diamond engagment ring" />
-          <img src={engageGoldRing} alt="Engagment ring gold" />
-          <img src={goldRing} alt="diamond engagment ring" />
-          <img src={loversRing} alt="diamond engagment ring" />
-          <img src={snakeRing} alt="diamond engagment ring" />
-          <img src={silverRing} alt="diamond engagment ring" />
-        </div>
-      </HeaderCard>
+    <HeaderCard>
+      <div className="header-content">
+        <h1>Ring Lover ?</h1>
+        <h5>we’ve got a collection to die for</h5>
+        <ViewMoreButton>View More</ViewMoreButton>
+      </div>
+      <div className="header-images">
+        <img src={diamondRing2} alt="diamond engagment ring" />
+        <img src={engageGoldRing} alt="Engagment ring gold" />
+        <img src={goldRing} alt="diamond engagment ring" />
+        <img src={loversRing} alt="diamond engagment ring" />
+        <img src={snakeRing} alt="diamond engagment ring" />
+        <img src={silverRing} alt="diamond engagment ring" />
+      </div>
+    </HeaderCard>
     <CategoriesSection className="categories">
       <div className="category-content">
         <div className="line"></div>
@@ -300,7 +297,7 @@ export const LandingPage = () => (
     </CategoriesSection>
     <NewArrivals className="new-arrivals">
       <h4>NEW ARRIVALS</h4>
-      <h6>just for your shopping pleasure</h6>
+      <h6>Just for your shopping pleasure</h6>
       <div className="prod-section">
         <div className="prod-card">
           <div className="prod-image">

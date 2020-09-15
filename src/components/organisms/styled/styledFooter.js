@@ -10,7 +10,7 @@ import {
 export const MainContainer = styled.div`
   margin-top: ${spacingUnit[5]};
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1300px; */
   position: relative;
   margin: 0 auto;
   font-family: ${headerFont};
